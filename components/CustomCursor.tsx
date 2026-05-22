@@ -6,9 +6,11 @@ import { useEffect, useMemo, useState } from "react";
 export function CustomCursor() {
   const reducedMotion = useReducedMotion();
   const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [mounted, setMounted] = useState(false);
 
+  // Determine if the device is touch capable after client mount
   const isTouch = useMemo(() => {
-    if (typeof window === "undefined") return true;
+    if (typeof window === "undefined") return false; // assume non-touch on server
     return (
       ("ontouchstart" in window && window.ontouchstart !== null) ||
       (navigator.maxTouchPoints ?? 0) > 0
@@ -17,14 +19,19 @@ export function CustomCursor() {
 
   const enabled = !reducedMotion && !isTouch;
 
+  // Set mounted flag after component is mounted on client
   useEffect(() => {
-    if (!enabled) return;
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || !enabled) return;
     const onMove = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });
     window.addEventListener("mousemove", onMove, { passive: true });
     return () => window.removeEventListener("mousemove", onMove);
-  }, [enabled]);
+  }, [mounted, enabled]);
 
-  if (!enabled) return null;
+  if (!mounted || !enabled) return null;
 
   return (
     <motion.div
