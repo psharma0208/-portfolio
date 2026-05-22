@@ -1,23 +1,25 @@
 "use client";
 
+import { site } from "@/lib/site-data";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Section } from "./ui/Section";
-import { Card } from "./ui/Card";
-import { Button } from "./ui/Button";
-import { site } from "@/lib/site-data";
 import { IconGitHub, IconLinkedIn, IconMail } from "./icons";
+import { Button } from "./ui/Button";
+import { Card } from "./ui/Card";
+import { Section } from "./ui/Section";
 
 type Status = { type: "idle" } | { type: "sending" } | { type: "sent" } | { type: "error"; message: string };
 
 export function Contact() {
   const [status, setStatus] = useState<Status>({ type: "idle" });
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [mailtoFallback, setMailtoFallback] = useState<string | null>(null);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus({ type: "sending" });
+    setMailtoFallback(null);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -25,7 +27,10 @@ export function Contact() {
         body: JSON.stringify(form),
       });
       if (!res.ok) {
-        const data = (await res.json().catch(() => null)) as { error?: string } | null;
+        const data = (await res.json().catch(() => null)) as
+          | { error?: string; mailto?: string }
+          | null;
+        if (res.status === 501 && data?.mailto) setMailtoFallback(data.mailto);
         throw new Error(data?.error ?? "Something went wrong");
       }
       setStatus({ type: "sent" });
@@ -160,7 +165,16 @@ export function Contact() {
                 {status.type === "sent" ? (
                   <p className="text-sm text-emerald-300">Message sent. Thank you!</p>
                 ) : status.type === "error" ? (
-                  <p className="text-sm text-rose-300">{status.message}</p>
+                  <div className="text-sm text-rose-300">
+                    <p>{status.message}</p>
+                    {mailtoFallback ? (
+                      <p className="mt-2">
+                        <a className="underline underline-offset-4" href={mailtoFallback}>
+                          Open email app instead
+                        </a>
+                      </p>
+                    ) : null}
+                  </div>
                 ) : (
                   <p className="text-sm text-[rgb(var(--muted))]">
                     This demo form validates and responds instantly.

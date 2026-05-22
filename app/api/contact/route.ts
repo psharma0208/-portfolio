@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { emailIsConfigured, sendContactEmail } from "@/lib/email";
+import { site } from "@/lib/site-data";
 
 type ContactPayload = {
   name: string;
@@ -26,9 +28,30 @@ export async function POST(req: Request) {
   if (message.length < 10)
     return NextResponse.json({ error: "Message is too short" }, { status: 400 });
 
-  // Fake latency for nicer UI feedback.
-  await new Promise((r) => setTimeout(r, 350));
+  if (!emailIsConfigured()) {
+    const subject = encodeURIComponent(`Portfolio Contact: ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n`);
+    const mailto = `${site.emailHref}?subject=${subject}&body=${body}`;
+    return NextResponse.json(
+      {
+        error:
+          "Email is not configured on the server. Set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_TO_EMAIL (and optional CONTACT_FROM_EMAIL).",
+        mailto,
+      },
+      { status: 501 },
+    );
+  }
+
+  try {
+    await sendContactEmail({
+      subject: `Portfolio Contact: ${name}`,
+      replyTo: email,
+      text: `New portfolio contact message\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n`,
+    });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Failed to send email";
+    return NextResponse.json({ error: message }, { status: 502 });
+  }
 
   return NextResponse.json({ ok: true });
 }
-

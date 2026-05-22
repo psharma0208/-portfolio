@@ -4,9 +4,10 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { Loader } from "@/components/Loader";
 import { Navbar } from "@/components/Navbar";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { CustomCursor } from "@/components/CustomCursor";
 import { Footer } from "@/components/Footer";
 import { site } from "@/lib/site-data";
+import { CustomCursor } from "@/components/CustomCursor";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
@@ -67,7 +68,9 @@ export default function RootLayout({
         <ThemeProvider>
           <Loader />
           <ScrollProgress />
-          <CustomCursor />
+          <ClientOnly>
+            <CustomCursor />
+          </ClientOnly>
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
