@@ -9,38 +9,33 @@ export function About() {
   return (
     <Section
       id="about"
-      eyebrow="ABOUT"
-      title="Backend-first mindset with product-level ownership"
-      subtitle="I build production-grade backend services with a focus on security, maintainability, and performance—then connect the dots with modern frontend and DevOps."
+      eyebrow="ABOUT ME"
+      title="Backend engineering depth with system-level responsibility"
+      subtitle="I design and maintain production backend systems for high-traffic education portals, ensuring high security and data integrity—while expanding into full-stack cloud and AI architectures."
     >
       <div className="grid gap-6 lg:grid-cols-2">
-        <Card>
-          <div className="text-sm font-semibold tracking-[0.22em] text-[rgb(var(--muted))]">
-            PROFESSIONAL SUMMARY
+        <Card className="glow-card hover:border-violet-500/20">
+          <div className="font-display text-xs font-bold tracking-[0.25em] text-[rgb(var(--primary))] uppercase">
+            Professional Profile
           </div>
-          <p className="mt-4 text-base leading-7 text-[rgb(var(--muted))]">
-            I’m a Java Backend Developer experienced in Spring Boot, REST APIs, and MySQL. I’ve
-            worked on real-world education platforms where reliability, data correctness, and
-            secure access control are non-negotiable.
+          <p className="mt-5 text-base leading-relaxed text-[rgb(var(--muted))] font-light">
+            I’m a focused Java Backend Developer who loves creating reliable, production-grade applications. At <span className="font-semibold text-[rgb(var(--fg))]">Entire Techno Solution</span>, I specialized in core backend architecture, designing performant REST APIs, and implementing robust Spring Security workflows using JWT.
           </p>
-          <p className="mt-4 text-base leading-7 text-[rgb(var(--muted))]">
-            My day-to-day work includes designing APIs, implementing authentication and
-            authorization, optimizing queries, and collaborating with teams to ship stable releases.
+          <p className="mt-4 text-base leading-relaxed text-[rgb(var(--muted))] font-light">
+            I approach coding with a backend-first mindset—prioritizing data integrity, clean schema design, and query optimization before connecting user interfaces.
           </p>
         </Card>
 
-        <Card>
-          <div className="text-sm font-semibold tracking-[0.22em] text-[rgb(var(--muted))]">
-            CURRENT FOCUS
+        <Card className="glow-card hover:border-accent/25">
+          <div className="font-display text-xs font-bold tracking-[0.25em] text-[rgb(var(--accent))] uppercase">
+            Current Skill Expansion
           </div>
-          <p className="mt-4 text-base leading-7 text-[rgb(var(--muted))]">
-            I’m expanding into React and Next.js to better understand end-to-end product delivery.
-            I’m also learning AWS, Docker, CI/CD, Redis, and AI integration to build faster and
-            smarter systems.
+          <p className="mt-5 text-base leading-relaxed text-[rgb(var(--muted))] font-light">
+            To deliver complete end-to-end features, I&apos;ve expanded my expertise into React, Next.js, and TypeScript. I&apos;m also active in containerizing systems with Docker, orchestrating on AWS, setting up automated CI/CD pipelines, and integrating AI agents via OpenAI APIs.
           </p>
-          <div className="mt-5 flex flex-wrap gap-2">
+          <div className="mt-6 flex flex-wrap gap-2">
             {["React", "Next.js", "AWS", "Docker", "CI/CD", "Redis", "OpenAI API"].map((x) => (
-              <Badge key={x}>{x}</Badge>
+              <Badge key={x} className="border-white/5 bg-white/[0.02] text-xs font-medium">{x}</Badge>
             ))}
           </div>
         </Card>
@@ -50,37 +45,37 @@ export function About() {
         initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
-        className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6"
+        className="glass glow-card mt-8 rounded-3xl p-8 hover:border-white/10"
       >
-        <div className="text-sm font-semibold tracking-[0.22em] text-[rgb(var(--muted))]">
-          CAREER JOURNEY (SNAPSHOT)
+        <div className="font-display text-xs font-bold tracking-[0.25em] text-[rgb(var(--primary2))] uppercase">
+          🚀 My Technical Roadmap
         </div>
-        <ol className="mt-4 grid gap-3 text-[rgb(var(--muted))] sm:grid-cols-3">
-          <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <div className="text-xs font-semibold tracking-[0.22em] text-[rgb(var(--muted))]">
-              STEP 01
+        <ol className="mt-6 grid gap-6 text-[rgb(var(--muted))] sm:grid-cols-3">
+          <li className="relative group rounded-2xl border border-white/5 bg-white/[0.01] p-5 transition-all hover:bg-white/[0.03] hover:border-violet-500/20">
+            <div className="font-display text-xs font-bold tracking-[0.25em] text-[rgb(var(--primary))]">
+              PHASE 01
             </div>
-            <div className="mt-2 font-medium text-[rgb(var(--fg))]">Backend fundamentals</div>
-            <p className="mt-2 text-sm leading-6">
-              Java, Spring Boot, clean REST conventions, and database design.
+            <div className="mt-3 font-semibold text-[rgb(var(--fg))] font-display">Backend Core</div>
+            <p className="mt-2 text-sm leading-relaxed font-light">
+              Mastered Java backend fundamentals, RESTful standards, Spring Boot microservices, and MySQL schema design.
             </p>
           </li>
-          <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <div className="text-xs font-semibold tracking-[0.22em] text-[rgb(var(--muted))]">
-              STEP 02
+          <li className="relative group rounded-2xl border border-white/5 bg-white/[0.01] p-5 transition-all hover:bg-white/[0.03] hover:border-rose-500/20">
+            <div className="font-display text-xs font-bold tracking-[0.25em] text-[rgb(var(--primary2))]">
+              PHASE 02
             </div>
-            <div className="mt-2 font-medium text-[rgb(var(--fg))]">Production systems</div>
-            <p className="mt-2 text-sm leading-6">
-              Real traffic, secure auth, bug fixes, performance and stability improvements.
+            <div className="mt-3 font-semibold text-[rgb(var(--fg))] font-display">Production Scale</div>
+            <p className="mt-2 text-sm leading-relaxed font-light">
+              Shipped secure endpoints for ERPs under traffic, implemented JWT, optimized DB queries, and resolved concurrency bugs.
             </p>
           </li>
-          <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <div className="text-xs font-semibold tracking-[0.22em] text-[rgb(var(--muted))]">
-              STEP 03
+          <li className="relative group rounded-2xl border border-white/5 bg-white/[0.01] p-5 transition-all hover:bg-white/[0.03] hover:border-teal-500/20">
+            <div className="font-display text-xs font-bold tracking-[0.25em] text-[rgb(var(--accent))]">
+              PHASE 03
             </div>
-            <div className="mt-2 font-medium text-[rgb(var(--fg))]">Full-stack & AI</div>
-            <p className="mt-2 text-sm leading-6">
-              Next.js + cloud + DevOps + AI integration to deliver complete solutions.
+            <div className="mt-3 font-semibold text-[rgb(var(--fg))] font-display">Full-Stack & Cloud</div>
+            <p className="mt-2 text-sm leading-relaxed font-light">
+              Building automated CI/CD pipelines, containerizing apps with Docker, scaling on AWS, and embedding AI services.
             </p>
           </li>
         </ol>

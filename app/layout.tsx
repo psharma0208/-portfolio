@@ -8,6 +8,20 @@ import { Footer } from "@/components/Footer";
 import { site } from "@/lib/site-data";
 import { CustomCursor } from "@/components/CustomCursor";
 import { ClientOnly } from "@/components/ClientOnly";
+import { Sora, Inter } from "next/font/google";
+
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
@@ -61,9 +75,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className="h-full antialiased dark"
+      className={`${sora.variable} ${inter.variable} h-full antialiased dark`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col font-sans">
         <div className="bg-fx" />
         <ThemeProvider>
           <Loader />

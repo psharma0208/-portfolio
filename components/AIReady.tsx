@@ -10,8 +10,8 @@ export function AIReady() {
     <Section
       id="ai"
       eyebrow="AI READY"
-      title="AI integration mindset (learning + building)"
-      subtitle="I’m exploring practical AI features—where they actually help product and engineering outcomes."
+      title="Practical AI Integration & Engineering"
+      subtitle="I focus on integrating AI services into production pipelines with a strong emphasis on reliability, guardrails, and cost efficiency."
     >
       <div className="grid gap-6 lg:grid-cols-3">
         <motion.div
@@ -20,17 +20,16 @@ export function AIReady() {
           viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
           transition={{ delay: 0.02 }}
         >
-          <Card className="h-full">
-            <div className="text-sm font-semibold tracking-[0.22em] text-[rgb(var(--muted))]">
-              WHAT I’M LEARNING
+          <Card className="glow-card hover:border-violet-500/25 h-full">
+            <div className="font-display text-xs font-bold tracking-[0.25em] text-[rgb(var(--primary))] uppercase">
+              Core AI Stack
             </div>
-            <p className="mt-4 text-sm leading-7 text-[rgb(var(--muted))]">
-              OpenAI API, prompt engineering, and safe integration patterns—so AI features are
-              reliable, measurable, and maintainable.
+            <p className="mt-4 text-sm leading-relaxed text-[rgb(var(--muted))] font-light">
+              Integrating LLM APIs (OpenAI, Claude) using structured JSON outputs, designing resilient retry handlers, and managing context constraints effectively.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
-              {["OpenAI API", "Prompt Engineering", "AI Integration"].map((x) => (
-                <Badge key={x}>{x}</Badge>
+              {["OpenAI API", "Structured Outputs", "Context Controls"].map((x) => (
+                <Badge key={x} className="border-white/5 bg-white/[0.02] text-xs font-light">{x}</Badge>
               ))}
             </div>
           </Card>
@@ -42,18 +41,18 @@ export function AIReady() {
           viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
           transition={{ delay: 0.06 }}
         >
-          <Card className="h-full">
-            <div className="text-sm font-semibold tracking-[0.22em] text-[rgb(var(--muted))]">
-              HOW I THINK ABOUT AI
+          <Card className="glow-card hover:border-rose-500/25 h-full">
+            <div className="font-display text-xs font-bold tracking-[0.25em] text-[rgb(var(--primary2))] uppercase">
+              Engineering Principles
             </div>
-            <ul className="mt-4 space-y-2 text-sm leading-6 text-[rgb(var(--muted))]">
+            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-[rgb(var(--muted))] font-light">
               {[
-                "Start with a clear user outcome and success metric.",
-                "Keep data boundaries tight and handle failures gracefully.",
-                "Prefer small, useful automations over flashy demos.",
+                "Strict isolation of user data boundaries for privacy.",
+                "Graceful degradation handlers for API outages.",
+                "Optimizing prompt sizes to keep latencies low.",
               ].map((h) => (
-                <li key={h} className="flex gap-3">
-                  <span className="mt-2 inline-block h-1.5 w-1.5 flex-none rounded-full bg-emerald-400" />
+                <li key={h} className="flex gap-2.5 items-start">
+                  <span className="mt-2 inline-block h-1.5 w-1.5 flex-none rounded-full bg-rose-400" />
                   <span>{h}</span>
                 </li>
               ))}
@@ -67,17 +66,16 @@ export function AIReady() {
           viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
           transition={{ delay: 0.1 }}
         >
-          <Card className="h-full">
-            <div className="text-sm font-semibold tracking-[0.22em] text-[rgb(var(--muted))]">
-              BRANDING
+          <Card className="glow-card hover:border-teal-500/25 h-full">
+            <div className="font-display text-xs font-bold tracking-[0.25em] text-[rgb(var(--accent))] uppercase">
+              System Alignment
             </div>
-            <p className="mt-4 text-sm leading-7 text-[rgb(var(--muted))]">
-              Backend engineer who can integrate AI thoughtfully—without sacrificing security,
-              performance, or maintainability.
+            <p className="mt-4 text-sm leading-relaxed text-[rgb(var(--muted))] font-light">
+              Bringing a backend-first mindset to AI: setting up rate-limiters, tracking audit logs for model choices, and monitoring semantic latency budgets.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
-              {["Security first", "Performance", "Maintainability"].map((x) => (
-                <Badge key={x}>{x}</Badge>
+              {["System Guardrails", "Rate-Limiting", "Cost Monitoring"].map((x) => (
+                <Badge key={x} className="border-white/5 bg-white/[0.02] text-xs font-light">{x}</Badge>
               ))}
             </div>
           </Card>

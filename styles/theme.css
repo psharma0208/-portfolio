@@ -2,34 +2,35 @@
    Tailwind v4 lets us define theme tokens directly in CSS. */
 
 :root {
-  /* Dark (default) */
-  --bg: 10 10 14;
-  --fg: 236 237 243;
-  --muted: 160 164 178;
-  --card: 16 17 23;
+  /* Dark (default) - Obsidian / Space theme */
+  --bg: 8 9 14;
+  --fg: 242 243 248;
+  --muted: 156 163 184;
+  --card: 14 15 23;
   --border: 255 255 255;
 
-  --primary: 124 58 237; /* violet */
-  --primary2: 34 211 238; /* cyan */
-  --accent: 16 185 129; /* emerald */
+  --primary: 124 58 237;   /* Violet */
+  --primary2: 244 63 94;   /* Rose - beautiful contrast with violet */
+  --accent: 45 212 191;    /* Vibrant Teal/Cyan */
 
-  --ring: 124 58 237;
+  --ring: 139 92 246;
 
   color-scheme: dark;
 }
 
 html.light {
-  --bg: 250 250 252;
-  --fg: 17 18 24;
-  --muted: 82 86 99;
+  /* Light - Minimal Slate / Pearl theme */
+  --bg: 248 249 253;
+  --fg: 15 17 28;
+  --muted: 100 116 139;
   --card: 255 255 255;
   --border: 0 0 0;
 
-  --primary: 109 40 217;
-  --primary2: 8 145 178;
-  --accent: 5 150 105;
+  --primary: 99 102 241;   /* Indigo */
+  --primary2: 244 63 94;   /* Rose */
+  --accent: 13 148 136;    /* Teal */
 
-  --ring: 109 40 217;
+  --ring: 99 102 241;
 
   color-scheme: light;
 }
@@ -41,11 +42,12 @@ html.light {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(1200px 800px at 15% 10%, rgba(124, 58, 237, 0.25), transparent 60%),
-    radial-gradient(900px 600px at 85% 20%, rgba(34, 211, 238, 0.22), transparent 55%),
-    radial-gradient(1000px 700px at 60% 90%, rgba(16, 185, 129, 0.12), transparent 55%),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03), transparent 22%, rgba(255, 255, 255, 0.02));
-  filter: saturate(1.1);
+    radial-gradient(1200px 800px at 15% 10%, rgba(124, 58, 237, 0.16), transparent 60%),
+    radial-gradient(900px 600px at 85% 20%, rgba(244, 63, 94, 0.12), transparent 55%),
+    radial-gradient(1000px 700px at 60% 90%, rgba(45, 212, 191, 0.08), transparent 55%),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.01), transparent 30%, rgba(255, 255, 255, 0.005));
+  filter: saturate(1.2);
+  transition: background 0.5s ease;
 }
 
 .bg-fx::before {
@@ -53,22 +55,43 @@ html.light {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  opacity: 0.35;
-  mask-image: radial-gradient(900px 600px at 50% 25%, black 40%, transparent 75%);
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: 0.4;
+  mask-image: radial-gradient(800px 500px at 50% 30%, black 50%, transparent 85%);
+}
+
+html.light .bg-fx {
+  background:
+    radial-gradient(1200px 800px at 15% 10%, rgba(99, 102, 241, 0.06), transparent 60%),
+    radial-gradient(900px 600px at 85% 20%, rgba(244, 63, 94, 0.04), transparent 55%),
+    radial-gradient(1000px 700px at 60% 90%, rgba(13, 148, 136, 0.03), transparent 55%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.005), transparent 30%, rgba(0, 0, 0, 0.002));
+}
+
+html.light .bg-fx::before {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
+  background: rgba(14, 15, 23, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.2), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 html.light .glass {
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.03), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .ring-focus:focus-visible {
@@ -79,10 +102,12 @@ html.light .glass {
 }
 
 .nav-blur {
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(14px);
+  background: rgba(8, 9, 14, 0.6);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 html.light .nav-blur {
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(248, 249, 253, 0.75);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }

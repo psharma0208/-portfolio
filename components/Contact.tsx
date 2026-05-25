@@ -49,45 +49,45 @@ export function Contact() {
       subtitle="Reach out for backend roles, API work, or platform engineering discussions."
     >
       <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-        <Card>
-          <div className="text-sm font-semibold tracking-[0.22em] text-[rgb(var(--muted))]">
-            DIRECT
+        <Card className="glow-card hover:border-violet-500/20">
+          <div className="font-display text-xs font-bold tracking-[0.25em] text-[rgb(var(--primary))] uppercase">
+            Direct Channels
           </div>
-          <div className="mt-4 grid gap-3 text-sm">
-            <a className="ring-focus rounded-xl p-3 hover:bg-white/10" href={site.emailHref}>
-              <div className="text-xs text-[rgb(var(--muted))]">Email</div>
-              <div className="mt-1 font-medium">{site.email}</div>
+          <div className="mt-6 grid gap-3 text-sm">
+            <a className="group rounded-xl border border-neutral-100 dark:border-white/5 bg-white/[0.01] p-4 transition-all hover:bg-white/[0.03] hover:border-violet-500/20" href={site.emailHref}>
+              <div className="text-xs text-[rgb(var(--muted))] font-medium uppercase tracking-wider">Email</div>
+              <div className="mt-1 font-semibold font-display text-[rgb(var(--fg))] group-hover:text-[rgb(var(--primary))] transition-colors">{site.email}</div>
             </a>
-            <a className="ring-focus rounded-xl p-3 hover:bg-white/10" href={site.phoneHref}>
-              <div className="text-xs text-[rgb(var(--muted))]">Phone</div>
-              <div className="mt-1 font-medium">{site.phoneDisplay}</div>
+            <a className="group rounded-xl border border-neutral-100 dark:border-white/5 bg-white/[0.01] p-4 transition-all hover:bg-white/[0.03] hover:border-rose-500/20" href={site.phoneHref}>
+              <div className="text-xs text-[rgb(var(--muted))] font-medium uppercase tracking-wider">Phone</div>
+              <div className="mt-1 font-semibold font-display text-[rgb(var(--fg))] group-hover:text-[rgb(var(--primary2))] transition-colors">{site.phoneDisplay}</div>
             </a>
             <Link
-              className="ring-focus rounded-xl p-3 hover:bg-white/10"
+              className="group rounded-xl border border-neutral-100 dark:border-white/5 bg-white/[0.01] p-4 transition-all hover:bg-white/[0.03] hover:border-teal-500/20"
               href={site.linkedin}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="text-xs text-[rgb(var(--muted))]">LinkedIn</div>
-              <div className="mt-1 font-medium">{site.linkedin}</div>
+              <div className="text-xs text-[rgb(var(--muted))] font-medium uppercase tracking-wider">LinkedIn</div>
+              <div className="mt-1 font-semibold font-display text-[rgb(var(--fg))] group-hover:text-[rgb(var(--accent))] transition-colors">{site.linkedin}</div>
             </Link>
             <Link
-              className="ring-focus rounded-xl p-3 hover:bg-white/10"
+              className="group rounded-xl border border-neutral-100 dark:border-white/5 bg-white/[0.01] p-4 transition-all hover:bg-white/[0.03] hover:border-violet-500/20"
               href={site.github}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="text-xs text-[rgb(var(--muted))]">GitHub</div>
-              <div className="mt-1 font-medium">{site.github}</div>
+              <div className="text-xs text-[rgb(var(--muted))] font-medium uppercase tracking-wider">GitHub</div>
+              <div className="mt-1 font-semibold font-display text-[rgb(var(--fg))] group-hover:text-[rgb(var(--primary))] transition-colors">{site.github}</div>
             </Link>
           </div>
 
-          <div className="mt-6 flex items-center gap-2">
+          <div className="mt-8 flex items-center gap-3 border-t border-neutral-100 dark:border-white/5 pt-6">
             <Link
               href={site.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass ring-focus inline-flex h-11 w-11 items-center justify-center rounded-full opacity-90 hover:opacity-100"
+              className="glass ring-focus inline-flex h-11 w-11 items-center justify-center rounded-full opacity-80 hover:opacity-100 transition-all hover:scale-105 hover:border-violet-500/20"
               aria-label="LinkedIn"
             >
               <IconLinkedIn className="h-5 w-5" />
@@ -96,14 +96,14 @@ export function Contact() {
               href={site.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass ring-focus inline-flex h-11 w-11 items-center justify-center rounded-full opacity-90 hover:opacity-100"
+              className="glass ring-focus inline-flex h-11 w-11 items-center justify-center rounded-full opacity-80 hover:opacity-100 transition-all hover:scale-105 hover:border-rose-500/20"
               aria-label="GitHub"
             >
               <IconGitHub className="h-5 w-5" />
             </Link>
             <Link
               href={site.emailHref}
-              className="glass ring-focus inline-flex h-11 w-11 items-center justify-center rounded-full opacity-90 hover:opacity-100"
+              className="glass ring-focus inline-flex h-11 w-11 items-center justify-center rounded-full opacity-80 hover:opacity-100 transition-all hover:scale-105 hover:border-teal-500/20"
               aria-label="Email"
             >
               <IconMail className="h-5 w-5" />
@@ -116,15 +116,15 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
         >
-          <Card>
-            <div className="text-sm font-semibold tracking-[0.22em] text-[rgb(var(--muted))]">
-              CONTACT FORM
+          <Card className="glow-card hover:border-violet-500/20">
+            <div className="font-display text-xs font-bold tracking-[0.25em] text-[rgb(var(--primary2))] uppercase">
+              Send Message
             </div>
-            <form className="mt-5 grid gap-4" onSubmit={onSubmit}>
+            <form className="mt-6 grid gap-4" onSubmit={onSubmit}>
               <label className="grid gap-2">
-                <span className="text-xs font-medium text-[rgb(var(--muted))]">Name</span>
+                <span className="text-xs font-semibold text-[rgb(var(--muted))] uppercase tracking-wider">Name</span>
                 <input
-                  className="ring-focus h-12 rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-[rgb(var(--fg))] outline-none placeholder:text-[rgb(var(--muted))] placeholder:opacity-70"
+                  className="h-12 rounded-xl border border-neutral-200 dark:border-white/5 bg-white/[0.02] px-4 text-sm text-[rgb(var(--fg))] outline-none placeholder:text-[rgb(var(--muted))] placeholder:opacity-60 transition-all focus:border-violet-500/50 focus:bg-white/[0.04] focus:ring-2 focus:ring-violet-500/20"
                   placeholder="Your name"
                   value={form.name}
                   onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
@@ -132,9 +132,9 @@ export function Contact() {
                 />
               </label>
               <label className="grid gap-2">
-                <span className="text-xs font-medium text-[rgb(var(--muted))]">Email</span>
+                <span className="text-xs font-semibold text-[rgb(var(--muted))] uppercase tracking-wider">Email</span>
                 <input
-                  className="ring-focus h-12 rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-[rgb(var(--fg))] outline-none placeholder:text-[rgb(var(--muted))] placeholder:opacity-70"
+                  className="h-12 rounded-xl border border-neutral-200 dark:border-white/5 bg-white/[0.02] px-4 text-sm text-[rgb(var(--fg))] outline-none placeholder:text-[rgb(var(--muted))] placeholder:opacity-60 transition-all focus:border-violet-500/50 focus:bg-white/[0.04] focus:ring-2 focus:ring-violet-500/20"
                   type="email"
                   placeholder="you@example.com"
                   value={form.email}
@@ -143,9 +143,9 @@ export function Contact() {
                 />
               </label>
               <label className="grid gap-2">
-                <span className="text-xs font-medium text-[rgb(var(--muted))]">Message</span>
+                <span className="text-xs font-semibold text-[rgb(var(--muted))] uppercase tracking-wider">Message</span>
                 <textarea
-                  className="ring-focus min-h-[120px] resize-y rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-[rgb(var(--fg))] outline-none placeholder:text-[rgb(var(--muted))] placeholder:opacity-70"
+                  className="min-h-[120px] resize-y rounded-xl border border-neutral-200 dark:border-white/5 bg-white/[0.02] px-4 py-3 text-sm text-[rgb(var(--fg))] outline-none placeholder:text-[rgb(var(--muted))] placeholder:opacity-60 transition-all focus:border-violet-500/50 focus:bg-white/[0.04] focus:ring-2 focus:ring-violet-500/20"
                   placeholder="Tell me what you’re building…"
                   value={form.message}
                   onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
@@ -153,19 +153,19 @@ export function Contact() {
                 />
               </label>
 
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-t border-neutral-100 dark:border-white/5 pt-6 mt-2">
                 <Button
                   type="submit"
                   variant="primary"
                   disabled={status.type === "sending"}
-                  className="disabled:opacity-60"
+                  className="disabled:opacity-60 interactive"
                 >
                   {status.type === "sending" ? "Sending..." : "Send Message"}
                 </Button>
                 {status.type === "sent" ? (
-                  <p className="text-sm text-emerald-300">Message sent. Thank you!</p>
+                  <p className="text-sm font-semibold text-emerald-400">Message sent. Thank you!</p>
                 ) : status.type === "error" ? (
-                  <div className="text-sm text-rose-300">
+                  <div className="text-sm text-rose-400">
                     <p>{status.message}</p>
                     {mailtoFallback ? (
                       <p className="mt-2">
@@ -176,8 +176,8 @@ export function Contact() {
                     ) : null}
                   </div>
                 ) : (
-                  <p className="text-sm text-[rgb(var(--muted))]">
-                    This demo form validates and responds instantly.
+                  <p className="text-xs text-[rgb(var(--muted))] font-light">
+                    Validates and responds instantly.
                   </p>
                 )}
               </div>
